@@ -1,0 +1,22 @@
+.week-forecast {
+    margin-top: 20px;
+  }
+  .weekday {
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 500;
+    font-size: 25px;
+    margin-bottom: -10px;
+  }
+  
+  .temperature {
+    font-family: "Comfortaa", cursive;
+  }
+  
+  .forecastIcon {
+    width: 100px;
+    height: 100px;
+  }
+  .minTemperature {
+    color: #858585;
+  }
+  
