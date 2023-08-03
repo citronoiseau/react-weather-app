@@ -68,7 +68,7 @@ function search () {
         </button>
       </div>
       <WeatherInfo data={weatherData} />
-      <Forecast />
+     {/*  <Forecast /> */}
       <FormattedDate date={weatherData.date} />
     </div>
   );
