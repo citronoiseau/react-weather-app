@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Body.css";
 import axios from "axios";
-import Forecast from "./Forecast";
 import { ThreeDots } from 'react-loader-spinner';
 import FormattedDate from "./FormattedDate";
 import WeatherInfo from "./WeatherInfo"
@@ -68,7 +67,6 @@ function search () {
         </button>
       </div>
       <WeatherInfo data={weatherData} />
-     {/*  <Forecast /> */}
       <FormattedDate date={weatherData.date} />
     </div>
   );
