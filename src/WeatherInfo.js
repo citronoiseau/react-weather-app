@@ -1,18 +1,12 @@
 import React from "react";
+import WeatherTemperature from "./WeatherTemperature"
 
 export default function WeatherInfo(props) {
     return (
         <div className="row main-info">
         <div className="col-md-2 col-sm-3 cityTemperatureNow">
           <div className="cityMain"> {props.data.city}</div>
-          <div className="temperatureMain">
-            {props.data.temperature}
-            <div className="changeTemp">
-              <div className="celciusTemp">°C</div>
-              <div className="borderTemp">|</div>
-              <div className="fahrenheitTemp">°F</div>
-            </div>
-          </div>
+          <WeatherTemperature  celsius={props.data.temperature}/>
         </div>
         <div className="col-md-2 col-sm-3 weather-description">
           <img
