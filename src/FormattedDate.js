@@ -2,7 +2,6 @@ import React from "react";
 import "./FormattedDate.css";
 
 export default function FormattedDate(props) {
-    console.log(props.date);
     let days =  ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturdays"];
     let months = [
         "January",
@@ -28,8 +27,6 @@ export default function FormattedDate(props) {
     }
     let month = months[props.date.getMonth()];
     let date = props.date.getDate();
-   
-    
     return (
         <div className="date">  Last updated at: {date}th of {month}, {day}, {hours}:{minutes} </div>
     );
