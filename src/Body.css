@@ -112,4 +112,16 @@
     font-size: 16px;
     color: #858585;
   }
-  
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+  }
+  .timeNow {
+    font-size: 16px;
+    margin-left: 42px;
+    font-weight: 300;
+    color: #858585;
+    font-family: "Comfortaa", cursive;
+  }
