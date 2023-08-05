@@ -3,13 +3,15 @@ import "./Body.css";
 import axios from "axios";
 import { ThreeDots } from 'react-loader-spinner';
 import FormattedDate from "./FormattedDate";
-import WeatherInfo from "./WeatherInfo"
+import WeatherInfo from "./WeatherInfo";
+import Forecast from "./Forecast";
 
 export default function Body(props) {
 const [weatherData, setWeatherData] = useState({ loaded: false });
 const [city, setCity] = useState(props.defaultCity)
 
   function handleResponse(response) {
+    console.log(response.data)
     if (response.data.status === "not_found") {
       alert("This city does not exist!😭");
       return false;
@@ -23,7 +25,8 @@ const [city, setCity] = useState(props.defaultCity)
         imageUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
         feelsLike:  Math.round(response.data.temperature.feels_like),
         humidity: response.data.temperature.humidity,
-        wind: Math.round(response.data.wind.speed)
+        wind: Math.round(response.data.wind.speed),
+        coordinates: response.data.coordinates
       });
     }
     console.log(response.data);
@@ -67,6 +70,7 @@ function search () {
         </button>
       </div>
       <WeatherInfo data={weatherData} />
+      <Forecast coord={weatherData.coordinates}/>
       <FormattedDate date={weatherData.date} />
     </div>
   );
