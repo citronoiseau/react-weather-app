@@ -112,9 +112,57 @@
     font-size: 16px;
     color: #858585;
   }
+  .week-forecast {
+    margin-top: 20px;
+  }
+  .weekday {
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 300;
+    font-size: 25px;
+    margin-bottom: -10px;
+    color: #858585;
+  }
+  
+  .temperature {
+    font-family: "Comfortaa", cursive;
+  }
+  
+  .forecastIcon {
+    width: 100px;
+    height: 100px;
+  }
+  .minTemperature {
+    color: #858585;
+  }
+  
+
   .loader {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px;
+  }
+
+  .date {
+    font-size: 14px;
+    margin-left: 42px;
+    font-weight: 300;
+    color: #858585;
+    font-family: "Comfortaa", cursive;
+  }
+
+  .Footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 15px;
+    font-family: "Comfortaa", cursive;
+  }
+  a {
+    text-decoration: none;
+    color: #d2407f;
+    transition: 0.1s all ease-in;
+  }
+  a:hover {
+    text-decoration: underline;
+    color: #fc9700;
   }

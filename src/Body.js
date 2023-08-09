@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Body.css";
 import axios from "axios";
-import { ThreeDots } from 'react-loader-spinner';
+import Loader from "./Loader"
 import FormattedDate from "./FormattedDate";
 import WeatherInfo from "./WeatherInfo";
 import Forecast from "./Forecast";
@@ -11,7 +11,7 @@ const [weatherData, setWeatherData] = useState({ loaded: false });
 const [city, setCity] = useState(props.defaultCity)
 
   function handleResponse(response) {
-    console.log(response.data)
+
     if (response.data.status === "not_found") {
       alert("This city does not exist!😭");
       return false;
@@ -29,7 +29,6 @@ const [city, setCity] = useState(props.defaultCity)
         coordinates: response.data.coordinates
       });
     }
-    console.log(response.data);
  
   }
 function search () {
@@ -77,19 +76,7 @@ function search () {
  } else {
   search ()
   return (
-  
-    <div className="loader"> 
-              <ThreeDots 
-            height="80" 
-            width="80" 
-            radius="9"
-            color="#858585" 
-            ariaLabel="three-dots-loading"
-            wrapperStyle={{}}
-            wrapperClassName=""
-            visible={true}
-            />
-   </div>
+    <Loader />
    );
  }
 
