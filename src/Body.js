@@ -39,14 +39,29 @@ function search () {
 
   function handleSubmit(event) {
   event.preventDefault();
-
   search();
 
   }
 
   function handleCityChange(event) {
   setCity(event.target.value.trim());
+  }
+function handleLocation(event) {
+  event.preventDefault();
+  showLocation(); 
+}
+  function showLocation() {
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+  function showPosition(position) {
+    let apiKey = "84a3odd1fb91cb0984343bb2db506t7f";
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${lat}&lon=${lon}&key=${apiKey}&units=metric`
 
+    axios
+      .get(apiUrl)
+      .then(handleResponse);
   }
 
  if (weatherData.loaded) {
@@ -64,7 +79,7 @@ function search () {
             onChange={handleCityChange}
           />
         </form>
-        <button className="homeButton">
+        <button className="homeButton" type="button" onClick={handleLocation}>
           <i className="fa-solid fa-house"></i>
         </button>
       </div>
@@ -74,7 +89,7 @@ function search () {
     </div>
   );
  } else {
-  search ()
+  search();
   return (
     <Loader />
    );
