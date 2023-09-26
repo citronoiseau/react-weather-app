@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Body.css";
 import axios from "axios";
 import Loader from "./Loader";
@@ -9,7 +9,19 @@ import Forecast from "./Forecast";
 export default function Body(props) {
   const [weatherData, setWeatherData] = useState({ loaded: false });
   const [city, setCity] = useState(props.defaultCity);
-  const [unit, setUnit] = useState("celsius");
+  const [unit, setUnit] = useState(() => {
+    const unitFromStorage = localStorage.getItem("unit");
+    console.log(unitFromStorage);
+    if (unitFromStorage) {
+      return unitFromStorage;
+    } else {
+      return "celsius";
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("unit", unit);
+  }, [unit]);
 
   function handleResponse(response) {
     if (response.data.status === "not_found") {
