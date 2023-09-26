@@ -8,7 +8,15 @@ import Forecast from "./Forecast";
 
 export default function Body(props) {
   const [weatherData, setWeatherData] = useState({ loaded: false });
-  const [city, setCity] = useState(props.defaultCity);
+  const [city, setCity] = useState(() => {
+    const cityFromStorage = localStorage.getItem("city");
+    console.log(cityFromStorage);
+    if (cityFromStorage) {
+      return cityFromStorage;
+    } else {
+      return props.defaultCity;
+    }
+  });
   const [unit, setUnit] = useState(() => {
     const unitFromStorage = localStorage.getItem("unit");
     console.log(unitFromStorage);
@@ -18,6 +26,9 @@ export default function Body(props) {
       return "celsius";
     }
   });
+  useEffect(() => {
+    localStorage.setItem("city", city);
+  }, [city]);
 
   useEffect(() => {
     localStorage.setItem("unit", unit);
@@ -28,6 +39,7 @@ export default function Body(props) {
       alert("This city does not exist!😭");
       return false;
     } else {
+      setCity(response.data.city);
       setWeatherData({
         loaded: true,
         date: new Date(response.data.time * 1000),
