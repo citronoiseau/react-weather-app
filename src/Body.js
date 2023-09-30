@@ -99,6 +99,7 @@ export default function Body(props) {
               onChange={handleCityChange}
             />
           </form>
+
           <button className="homeButton" type="button" onClick={handleLocation}>
             <i className="fa-solid fa-house"></i>
           </button>
